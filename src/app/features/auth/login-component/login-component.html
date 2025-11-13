@@ -1,0 +1,18 @@
+<p>Welcome to Login</p>
+@if (showWelcome) {
+<p>We're glad to have you back!</p>
+} @else {
+<p>Please enter your credentials to continue.</p>
+}
+
+<ul>
+  @for( item of list; track item) {
+  <li>Item {{ item }}</li>
+  }
+</ul>
+
+<p>My name is: {{ myName() }}</p>
+<p>Counter: {{ counter() }}</p>
+<p>Double: {{ double() }}</p>
+
+<button (click)="changeName()">Change Name</button>
