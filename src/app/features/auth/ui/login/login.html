@@ -1,1 +1,31 @@
 <p>Welcome to Login</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <label for="email">Email</label>
+  <input id="email" type="text" formControlName="email" />
+
+  @let emailControl = loginForm.get('email'); @if (emailControl?.invalid && emailControl?.touched) {
+  <div>
+    @if (emailControl?.hasError('required')) {
+    <span>Email is required</span>
+    } @if (emailControl?.hasError('email')) {
+    <span>Email is invalid</span>
+    }
+  </div>
+  }
+
+  <label for="password">Password</label>
+  <input id="password" type="password" formControlName="password" />
+
+  @let passwordControl = loginForm.get('password'); @if (passwordControl?.invalid &&
+  passwordControl?.touched) {
+  <div>
+    @if (passwordControl?.hasError('required')) {
+    <span>Password is required</span>
+    } @if (passwordControl?.hasError('minlength')) {
+    <span>Password must be at least 8 characters long</span>
+    }
+  </div>
+  }
+
+  <button type="submit">Login</button>
+</form>

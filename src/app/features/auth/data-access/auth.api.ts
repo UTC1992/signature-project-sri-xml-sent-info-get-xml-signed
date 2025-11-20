@@ -17,6 +17,6 @@ export class AuthApi {
 
   isLoggedIn(): boolean {
     // For now, return true to allow access
-    return true;
+    return false;
   }
 }
