@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
-import { AuthApi } from '../../data-access/auth.api';
+import { AuthService } from '../../data-access/auth.service';
 import { AuthStore } from '../../data-access/auth.store';
 import {
   FormBuilder,
@@ -18,7 +18,7 @@ import {
 })
 export class Login {
   private _authStore = inject(AuthStore);
-  private _authApi = inject(AuthApi);
+  private _authService = inject(AuthService);
 
   private _formBuilder = inject(FormBuilder);
 

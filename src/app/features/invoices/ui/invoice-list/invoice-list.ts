@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Invoice } from '../../models/invoice.mode';
 
 @Component({
   selector: 'app-invoice-list',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './invoice-list.scss',
   standalone: true,
 })
-export class InvoiceList {}
+export class InvoiceList {
+  @Input() invoices: Invoice[] | null = null;
+}

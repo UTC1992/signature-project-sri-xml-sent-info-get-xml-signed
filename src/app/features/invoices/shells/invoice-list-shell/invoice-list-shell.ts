@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { InvoiceList } from '../../ui/invoice-list/invoice-list';
+import { InvoiceService } from '../../services/invoice.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-invoice-list-shell',
@@ -8,4 +10,8 @@ import { InvoiceList } from '../../ui/invoice-list/invoice-list';
   styleUrl: './invoice-list-shell.scss',
   standalone: true,
 })
-export class InvoiceListShell {}
+export class InvoiceListShell {
+  private invoiceService = inject(InvoiceService);
+
+  invoices = toSignal(this.invoiceService.getInvoices(), { initialValue: null });
+}
