@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Invoice } from '../models/invoice.mode';
+import { Invoice, InvoiceFormValues } from '../models/invoice.mode';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,5 +12,9 @@ export class InvoiceService {
 
   getInvoices(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>(this.url);
+  }
+
+  createInvoice(invoice: InvoiceFormValues): Observable<Invoice> {
+    return this.http.post<Invoice>(this.url, invoice);
   }
 }

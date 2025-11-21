@@ -13,5 +13,7 @@ import { InvoiceStore } from '../../data-access/invoice.store';
 export class InvoiceListShell {
   private _invoiceStore = inject(InvoiceStore);
 
+  isLoading = this._invoiceStore.isLoading;
+  isListEmpty = this._invoiceStore.isListEmpty;
   invoices = this._invoiceStore.invoices;
 }

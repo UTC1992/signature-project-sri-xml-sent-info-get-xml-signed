@@ -1,7 +1,9 @@
 export interface Invoice {
   id: string;
-  number: string;
+  code: string;
   date: string;
-  amount: number;
+  amount: number | null;
   status: string;
 }
+
+export type InvoiceFormValues = Omit<Invoice, 'id' | 'status'>;

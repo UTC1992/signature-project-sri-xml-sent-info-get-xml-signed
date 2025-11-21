@@ -1,2 +1,8 @@
 <p>Facturas List</p>
+@if (isLoading()) {
+<p>Loading...</p>
+} @else if (isListEmpty()) {
+<p>No hay facturas</p>
+} @else {
 <app-invoice-list [invoices]="invoices()"></app-invoice-list>
+}

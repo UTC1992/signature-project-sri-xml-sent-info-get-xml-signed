@@ -1,13 +1,7 @@
 <h2>Lista de Productos</h2>
 
-@if (!invoices) {
-<p>Cargando productos...</p>
-} @else if (invoices!.length === 0) {
-<p>No se encontraron productos.</p>
-} @else {
 <ul>
   @for (invoice of invoices; track invoice.id) {
   <li>{{ invoice.id }}</li>
   }
 </ul>
-}
