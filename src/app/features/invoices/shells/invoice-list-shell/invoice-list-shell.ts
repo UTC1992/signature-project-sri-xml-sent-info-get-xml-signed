@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { InvoiceList } from '../../ui/invoice-list/invoice-list';
-import { InvoiceService } from '../../services/invoice.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { InvoiceStore } from '../../data-access/invoice.store';
 
 @Component({
   selector: 'app-invoice-list-shell',
@@ -11,7 +11,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
   standalone: true,
 })
 export class InvoiceListShell {
-  private invoiceService = inject(InvoiceService);
+  private _invoiceStore = inject(InvoiceStore);
 
-  invoices = toSignal(this.invoiceService.getInvoices(), { initialValue: null });
+  invoices = this._invoiceStore.invoices;
 }

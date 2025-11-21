@@ -7,7 +7,14 @@ export const INVOICE_ROUTES: Routes = [
       import('./shells/invoice-list-shell/invoice-list-shell').then((m) => m.InvoiceListShell),
   },
   {
-    path: ':id',
+    path: 'create',
+    loadComponent: () =>
+      import('./shells/invoice-create-shell/invoice-create-shell').then(
+        (m) => m.InvoiceCreateShell
+      ),
+  },
+  {
+    path: 'edit/:id',
     loadComponent: () =>
       import('./shells/invoice-detail-shell/invoice-detail-shell').then(
         (m) => m.InvoiceDetailShell

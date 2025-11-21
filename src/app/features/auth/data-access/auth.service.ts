@@ -10,7 +10,7 @@ export class AuthService {
 
   private httpService = inject(HttpClient);
 
-  private _accessToken = signal<string | null>(localStorage.getItem('token'));
+  private _accessToken = signal<string | null>(localStorage.getItem('token') || 'hola mundo');
 
   accessToken = this._accessToken.asReadonly();
 

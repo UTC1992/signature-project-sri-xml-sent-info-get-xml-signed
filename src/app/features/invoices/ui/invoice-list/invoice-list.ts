@@ -9,5 +9,5 @@ import { Invoice } from '../../models/invoice.mode';
   standalone: true,
 })
 export class InvoiceList {
-  @Input() invoices: Invoice[] | null = null;
+  @Input() invoices: Invoice[] | undefined;
 }
